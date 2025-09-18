@@ -38,9 +38,9 @@ this.push = function (value){
 this.peek = function(){
     return this.storage[this.count-1] // return the last index value parsed 
 }
-// this.peekLastPosition = function(){
-//     return this.storage[this.count] // return the count index by the value parsed 
-// }
+this.peekLastPosition = function(){
+    return this.storage[this.count] // return the count index by the value parsed 
+}
 
 this.pop = function(){
    if( this.count === 0){ // if the count has finished, i.e at index 0 return undefined, i.e no item left in the stack

@@ -68,37 +68,47 @@ function mySet () {
             if(!newSet.has(e)){ // compare both element and return elements not in boths set using the !has() method 
                 differenceSet.add(e)
             }
-        })
+        }) 
         return differenceSet
     }
-    this.subset = function(newSet){
-        var subSets = new mySet()
-        var firstSet = this.values()
 
-        firstSet.every(e => {
-            if (newSet.has(e)) {
-                subSets.add(e)
+    this.subset = function(newSet){
+        var firstSet = this.values() // get the values of the elements in the co
+
+       return firstSet.every(e => {
+            return newSet.has(e)
             }
-        })
+        )
         
     }
 
 }   
 
-var getAllSubset = function(array1){
-    array1 => array1.reduce((curr, arr) => curr.concat(
-        curr.map(set => [arr, ...set])
-    )),
-    [
-        []
-    ]
-}
+
+
+var setA = new mySet()
+var setB = new mySet()
+setA.add(2)
+setA.add(3)
+setB.add(4)
+setB.add(3)
+setB.add(2)
+setB.add(5)
+setB.add(2)
+console.log('intersection',setA.intersection(setB).values());
+console.log('unionSet',setA.union(setB).values());
+console.log('difference',setB.difference(setA).values());
+console.log('subset',setA.subset(setB));
 
 const newSet = new mySet()
+const newSetB = new mySet()
 newSet.add(7)
 newSet.add(11)
 newSet.add(12)
 newSet.add(2)
-newSet.add(6)
+newSetB.add(6)
+newSetB.remove(6)
+console.log(newSetB.has(6));
+
+
 console.log(newSet.values())
-newSet.intersection([67, 12, 6, 2, 99, 9])
